@@ -31,35 +31,56 @@ public class Main {
 		//comparazione date
 		dataOdierna.compareTo(dataFormattata);
 		
+		//controllo data
+		//caso in cui la data sia già passata
 		if(dataOdierna.after(dataFormattata)) {
 			System.out.println("Mi dispiace, questo evento è già passato.");
-		}
-		
-		System.out.println("Titolo dell'evento:");
-		String titoloEvento= in.nextLine();
-		
-		System.out.println(dataFormattata+" - "+titoloEvento);
-		System.out.println("Quanti posti vuoi prenotare?");
-		int prenotazione= in.nextInt();
-		
-		System.out.println("Posti prenotati: "+ prenotazione+"/100");
-		
-		System.out.println("Vuoi disdire delle prenotazioni?");
-		String siOno= in.nextLine();
-		
-		if(siOno=="si") {
-			System.out.println("Quante prenotazioni vuoi disdire?");
-			int disdette=in.nextInt();
-			if(disdette>prenotazione) {
-				System.out.println("Non puoi disdire più posti di quelli che hai prenotato!");
+			
+		}else 
+			//caso in cui la data non sia già passata
+			{
+			System.out.println("Titolo dell'evento:");
+			String titoloEvento= in.nextLine();
+			
+			System.out.println(dataFormattata+" - "+titoloEvento);
+			
+			System.out.println("Quanti posti vuoi prenotare?");
+			
+			int prenotazione= in.nextInt();
+			//caso in cui in numero delle prenotazioni non sia valido
+			if(prenotazione<1) {
+				System.out.println("Il numero delle prenotazioni non può essere meno di 1");
+			
 			}else {
-				int prenotazioneDefinitiva=prenotazione-disdette;
-				System.out.println("Posti prenotati: "+prenotazioneDefinitiva+"/100");
-			}
+				System.out.println("Posti prenotati: "+ prenotazione+"/100");
+				System.out.println("Vuoi disdire delle prenotazioni? Si:1/No:2");
+				int siOno= in.nextInt();
+				
+				if(siOno==1) {
+					System.out.println("Quante prenotazioni vuoi disdire?");
+					int disdette=in.nextInt();
+					if(disdette>prenotazione) {
+						System.out.println("Non puoi disdire più posti di quelli che hai prenotato!");
+					}else{
+						int prenotazioneDefinitiva=prenotazione-disdette;
+						System.out.println("Posti prenotati: "+prenotazioneDefinitiva+"/100");
+					}
+				}else if (siOno==2){
+					System.out.println("Posti prenotati: "+ prenotazione+"/100");
+				}else {
+					System.out.println("Non hai seguito le istruzioni, devi ricominciare.");
+				}
+			
+			
 		}
-	}
+		
+		
 		
 	}
+		in.close();
+		
+	}
+}
 
 		//System.out.println(greenDay.toString());
 		
