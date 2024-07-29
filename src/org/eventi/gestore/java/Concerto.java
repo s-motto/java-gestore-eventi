@@ -1,8 +1,11 @@
 package org.eventi.gestore.java;
 
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public class Concerto extends Evento {
 
-	private String ora;
+	private LocalTime ora;
 	private float prezzo;
 	
 	
@@ -10,7 +13,7 @@ public class Concerto extends Evento {
 	
 	
 	
-	public String getOra() {
+	public LocalTime getOra() {
 		return ora;
 	}
 
@@ -19,7 +22,7 @@ public class Concerto extends Evento {
 
 
 
-	public void setOra(String ora) {
+	public void setOra(LocalTime ora) {
 		this.ora = ora;
 	}
 
@@ -42,13 +45,22 @@ public class Concerto extends Evento {
 	}
 
 
+  
+   LocalTime orario= LocalTime.now();
+  
 
 
-
-
-	public Concerto(String titolo,String data, int postiTotali, int postiPrenotati, String ora, float prezzo){
+	public Concerto(String titolo,String data, int postiTotali, int postiPrenotati, LocalTime ora, float prezzo){
 		super(titolo, data, postiTotali, postiPrenotati);
-		this.ora=ora;
+		this.ora=orario;
 		this.prezzo=prezzo;
+	}
+	
+	DateTimeFormatter formatter=DateTimeFormatter.ofPattern("HH.mm");
+	String oraFormattata= orario.format(formatter);
+	
+	@Override
+	public String toString() {
+		return this.getData()+", "+ oraFormattata+" - "+ this.getTitolo()+" - "+prezzo;
 	}
 }
