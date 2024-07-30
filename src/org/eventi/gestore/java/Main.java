@@ -1,7 +1,4 @@
 package org.eventi.gestore.java;
-
-
-
 import java.time.format.DateTimeFormatter;
 import java.time.LocalDate;
 import java.util.Scanner;
@@ -42,7 +39,7 @@ public class Main {
 		if(postiTotali<=0) {
 			System.out.println("L'evento deve avere almeno un posto disponibile!");
 		
-		}
+		}else {
 		
 		//creo l'evento
 		Evento nuovoEvento= new Evento(titolo, dataFormattata, postiTotali, 0);
@@ -60,10 +57,9 @@ public class Main {
 			for(int i=0; i<numeroPrenotazioni;i++) {
 				nuovoEvento.prenota();	
 				
-				System.out.println("Posti prenotati: "+nuovoEvento.getPostiPrenotati() +"/"+postiTotali);
-				System.out.println("Posti ancora disponibili:" + (postiTotali - nuovoEvento.getPostiPrenotati()));
 			}
-		
+			System.out.println("Posti prenotati: "+nuovoEvento.getPostiPrenotati() +"/"+postiTotali);
+			System.out.println("Posti ancora disponibili:" + (postiTotali - nuovoEvento.getPostiPrenotati()));
 		
 		//chiedo se si vogliono disdire dei posti
 		System.out.println("Vuoi disdire delle prenotazioni? Si:1/No:2");
@@ -85,9 +81,10 @@ public class Main {
 				for(int i=0; i<numeroDiDisdette;i++) {
 					nuovoEvento.disdici();
 					
-					System.out.println("Posti prenotati: "+nuovoEvento.getPostiPrenotati()+"/"+postiTotali);
-					System.out.println("Posti ancora disponibili:" + (postiTotali - nuovoEvento.getPostiPrenotati()));
 				}
+				
+				System.out.println("Posti prenotati: "+nuovoEvento.getPostiPrenotati()+"/"+postiTotali);
+				System.out.println("Posti ancora disponibili:" + (postiTotali - nuovoEvento.getPostiPrenotati()));
 			}
 		case 2:
 			break;
@@ -96,6 +93,8 @@ public class Main {
 		}
 		
 		}
+		}
+		in.close();
 	}
 }
 
