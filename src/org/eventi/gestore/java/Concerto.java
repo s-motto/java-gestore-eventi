@@ -1,5 +1,5 @@
 package org.eventi.gestore.java;
-
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
@@ -50,7 +50,7 @@ public class Concerto extends Evento {
   
 
 
-	public Concerto(String titolo,String data, int postiTotali, int postiPrenotati, LocalTime ora, float prezzo){
+	public Concerto(String titolo,LocalDate data, int postiTotali, int postiPrenotati, LocalTime ora, float prezzo){
 		super(titolo, data, postiTotali, postiPrenotati);
 		this.ora=orario;
 		this.prezzo=prezzo;
@@ -61,6 +61,6 @@ public class Concerto extends Evento {
 	
 	@Override
 	public String toString() {
-		return this.getData()+", "+ oraFormattata+" - "+ this.getTitolo()+" - "+prezzo;
+		return this.getData()+", "+ oraFormattata+" - "+ this.getTitolo()+" - "+prezzo+" euro.";
 	}
 }
