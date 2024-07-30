@@ -46,18 +46,26 @@ public class Main {
 		
 		System.out.println("Quanti posti vuoi prenotare?");
 		int numeroPrenotazioni= in.nextInt();
+		
 		//controllo che il numero non superi quello dei posto disponibili
 		if(numeroPrenotazioni>postiTotali) {
+			
 			System.out.println("Non puoi prenotare più posti di quelli disponibili");
+			
 		}else if(numeroPrenotazioni<1) {
+			
 			//controllo che il numero non sia minore di uno
 			System.out.println("Devi prenotare almeno un posto");
+			
 		}else {
+			
 			//aggiungo i posti prenotati 
 			for(int i=0; i<numeroPrenotazioni;i++) {
 				nuovoEvento.prenota();	
 				
 			}
+			
+			//stampo posti prenotati e totali
 			System.out.println("Posti prenotati: "+nuovoEvento.getPostiPrenotati() +"/"+postiTotali);
 			System.out.println("Posti ancora disponibili:" + (postiTotali - nuovoEvento.getPostiPrenotati()));
 		
@@ -68,6 +76,7 @@ public class Main {
 		
 		switch(disdette){
 		
+		//se la risposta è si chiedo quanti posti si vogliono disdire
 		case 1:
 			System.out.println("Quanti posti vuoi disdire?");
 			int numeroDiDisdette=in.nextInt();
@@ -82,10 +91,11 @@ public class Main {
 					nuovoEvento.disdici();
 					
 				}
-				
+				//stampo il nuovo numero di posti prenotati e disponibili
 				System.out.println("Posti prenotati: "+nuovoEvento.getPostiPrenotati()+"/"+postiTotali);
 				System.out.println("Posti ancora disponibili:" + (postiTotali - nuovoEvento.getPostiPrenotati()));
 			}
+			
 		case 2:
 			break;
 		}
