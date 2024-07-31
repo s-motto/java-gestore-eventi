@@ -92,6 +92,7 @@ public class Main {
 					
 				}
 				//stampo il nuovo numero di posti prenotati e disponibili
+				System.out.println(nuovoEvento.toString());
 				System.out.println("Posti prenotati: "+nuovoEvento.getPostiPrenotati()+"/"+postiTotali);
 				System.out.println("Posti ancora disponibili:" + (postiTotali - nuovoEvento.getPostiPrenotati()));
 			}

@@ -90,6 +90,6 @@ public class Evento {
 	
 	
 	public String toString() {
-		return data+" - "+titolo;
+		return this.data+" - "+this.titolo;
 	}
 }
